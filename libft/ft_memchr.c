@@ -6,9 +6,11 @@
 /*   By: nkrifa <nkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 13:18:05 by nkrifa            #+#    #+#             */
-/*   Updated: 2017/10/21 23:09:27 by nkrifa           ###   ########.fr       */
+/*   Updated: 2017/10/21 23:37:57 by nkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
