@@ -5,20 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkrifa <nkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/07 16:39:33 by nkrifa           #+#    #+#             */
-/*   Updated: 2017/10/21 02:55:11 by nkrifa           ###   ########.fr       */
+/*   Created: 2016/03/07 16:39:33 by nkrifa            #+#    #+#             */
+/*   Updated: 2017/10/21 23:15:36 by nkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/fractol.h"
+#include "../includes/fractol.h"
 
-
-
-
-int			ft_menu(t_env *e)
+int		ft_menu(t_env *e)
 {
 	mlx_string_put(e->mlx, e->win, 5, WIN_H + 5, 0xFFFFFF, "COMMANDES");
-	mlx_string_put(e->mlx, e->win, 70, WIN_H + 40, 0xFFFFFF,"ESC => Quitter");
+	mlx_string_put(e->mlx, e->win, 70, WIN_H + 40, 0xFFFFFF, "ESC => Quitter");
 	mlx_string_put(e->mlx, e->win, 70, WIN_H + 70, 0xFFFFFF, \
 		"Clic Gauche / Molette Haut => Zoomer");
 	mlx_string_put(e->mlx, e->win, 70, WIN_H + 100, 0xFFFFFF, \
@@ -36,13 +33,13 @@ int			ft_menu(t_env *e)
 	mlx_string_put(e->mlx, e->win, 650, WIN_H + 130, 0xFFFFFF, \
 		"ESPACE => Variation parametres Julia");
 	mlx_string_put(e->mlx, e->win, 650, WIN_H + 160, 0xFFFFFF, \
-		"Fleches du clavier => Deplacement"); 
+		"Fleches du clavier => Deplacement");
 	return (0);
 }
 
-int	ft_julia(t_env *e, int x, int y)
+int		ft_julia(t_env *e, int x, int y)
 {
-	t_img		*f;
+	t_img	*f;
 	int		i;
 	double	tmp;
 
@@ -59,9 +56,9 @@ int	ft_julia(t_env *e, int x, int y)
 	return (i);
 }
 
-   int	ft_mandelbrot(t_env *e, int x, int y)
+int		ft_mandelbrot(t_env *e, int x, int y)
 {
-	t_img		*f;
+	t_img	*f;
 	int		i;
 	double	tmp;
 
@@ -80,9 +77,9 @@ int	ft_julia(t_env *e, int x, int y)
 	return (i);
 }
 
-   int	ft_tricorn(t_env *e, int x, int y)
+int		ft_tricorn(t_env *e, int x, int y)
 {
-	t_img		*f;
+	t_img	*f;
 	int		i;
 	double	tmp;
 
@@ -101,7 +98,7 @@ int	ft_julia(t_env *e, int x, int y)
 	return (i);
 }
 
-int			ft_draw(t_env *e)
+int		ft_draw(t_env *e)
 {
 	int	x;
 	int	y;
@@ -128,7 +125,7 @@ int			ft_draw(t_env *e)
 	return (0);
 }
 
-   void	ft_reset(t_env *e)
+void	ft_reset(t_env *e)
 {
 	e->f->cr = -1.1380;
 	e->f->ci = 0.2403;
@@ -145,7 +142,7 @@ int			ft_draw(t_env *e)
 	e->color = 88;
 }
 
-   void	ft_switch_julia(t_env *e, double *tab1, double *tab2, int i)
+void	ft_switch_julia(t_env *e, double *tab1, double *tab2, int i)
 {
 	tab1[0] = -0.772691322542185;
 	tab2[0] = 0.124281466072787;
@@ -172,7 +169,7 @@ int			ft_draw(t_env *e)
 		e->f->ci = tab2[0];
 }
 
-   int	ft_move(int keycode, t_env *e)
+int		ft_move(int keycode, t_env *e)
 {
 	double	c;
 
@@ -200,7 +197,7 @@ int			ft_draw(t_env *e)
 	return (0);
 }
 
-   int	key_hook2(int keycode, t_env *e)
+int		key_hook2(int keycode, t_env *e)
 {
 	if (keycode == SWITCH)
 	{
@@ -215,7 +212,7 @@ int			ft_draw(t_env *e)
 	return (0);
 }
 
-int			key_hook(int keycode, t_env *e)
+int		key_hook(int keycode, t_env *e)
 {
 	double	tab1[7];
 	double	tab2[7];
@@ -244,7 +241,7 @@ int			key_hook(int keycode, t_env *e)
 	return (0);
 }
 
-int			ft_mouse(int button, int x, int y, t_env *e)
+int		ft_mouse(int button, int x, int y, t_env *e)
 {
 	double	dx;
 	double	dy;
@@ -261,8 +258,8 @@ int			ft_mouse(int button, int x, int y, t_env *e)
 		YMIN = e->f->my - (dy / 1.5) / 2;
 		YMAX = e->f->my + (dy / 1.5) / 2;
 	}
-	else if ((button == L_MOUSE || button == DN_WHEEL) && (x >= 0 && x <= WIN_W)\
-			&& (y >= 0 && y <= WIN_H))
+	else if ((button == L_MOUSE || button == DN_WHEEL) && \
+		(x >= 0 && x <= WIN_W) && (y >= 0 && y <= WIN_H))
 	{
 		XMIN = e->f->mx - (dx * 1.5) / 2;
 		XMAX = e->f->mx + (dx * 1.5) / 2;
@@ -272,7 +269,7 @@ int			ft_mouse(int button, int x, int y, t_env *e)
 	return (ft_draw(e));
 }
 
-int			ft_motion(int x, int y, t_env *e)
+int		ft_motion(int x, int y, t_env *e)
 {
 	if (x >= 0 && x <= WIN_W && y >= 0 && y <= WIN_H && e->f->nb == 1)
 	{
@@ -282,9 +279,7 @@ int			ft_motion(int x, int y, t_env *e)
 	return (ft_draw(e));
 }
 
-
-
-int				ft_color(int i, t_env *e)
+int		ft_color(int i, t_env *e)
 {
 	int		red;
 	int		green;
@@ -315,7 +310,7 @@ void			draw_pixel(t_img *f, int x, int y, int color)
 	}
 }
 
-   t_img		*init_img(char *s)
+t_img		*init_img(char *s)
 {
 	t_img	*f;
 
@@ -331,7 +326,7 @@ void			draw_pixel(t_img *f, int x, int y, int color)
 	return (f);
 }
 
-   t_env	*init_env(char *s)
+t_env	*init_env(char *s)
 {
 	t_env	*e;
 
@@ -361,7 +356,8 @@ int				main(int argc, char **argv)
 
 	if (argc != 2 || ft_atoi(argv[1]) < 1 || ft_atoi(argv[1]) > 3)
 	{
-		ft_putstr("Error, put 1 / 2 / 3 as param to get Julia / Mandelbrot / Tricorn");
+		ft_putstr("Error, put 1 / 2 / 3 as param to get Julia / \
+		Mandelbrot / Tricorn");
 		return (0);
 	}
 	if ((e = init_env(argv[1])) != NULL)
