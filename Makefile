@@ -6,7 +6,7 @@
 #    By: nkrifa <nkrifa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/09 13:47:47 by nkrifa            #+#    #+#              #
-#    Updated: 2017/10/21 22:55:09 by nkrifa           ###   ########.fr        #
+#    Updated: 2017/10/23 16:55:18 by nkrifa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,10 @@ FLAGS = -Wall -Wextra -Werror -O3
 HEADERS = includes/fractol.h
 
 SOURCES = srcs/main.c \
+		  srcs/controls.c \
+		  srcs/draw.c \
+		  srcs/fractals.c \
+		  srcs/tools.c
 		 
 
 OBJECTS = $(SOURCES:.c=.o)

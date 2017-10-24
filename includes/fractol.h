@@ -6,7 +6,7 @@
 /*   By: nkrifa <nkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 13:18:05 by nkrifa            #+#    #+#             */
-/*   Updated: 2017/10/21 23:08:05 by nkrifa           ###   ########.fr       */
+/*   Updated: 2017/10/23 22:28:29 by nkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,14 @@ int				ft_mouse(int button, int x, int y, t_env *e);
 void			draw_pixel(t_img *f, int x, int y, int color);
 int				ft_menu(t_env *e);
 int				ft_julia(t_env *e, int x, int y);
+int				ft_trijulia(t_env *e, int x, int y);
 int				ft_mandelbrot(t_env *e, int x, int y);
 int				ft_tricorn(t_env *e, int x, int y);
-void			ft_reset(t_env *e);
+void			ft_reset_env(t_env *e);
 void			ft_switch_julia(t_env *e, double *tab1, double *tab2, int i);
 int				ft_move(int keycode, t_env *e);
 int				key_hook(int keycode, t_env *e);
+int				key_hook2(int keycode, t_env *e);
 int				key_hook2(int keycode, t_env *e);
 int				ft_mouse(int button, int x, int y, t_env *e);
 int				ft_motion(int x, int y, t_env *e);
